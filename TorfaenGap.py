@@ -1,12 +1,11 @@
 import matplotlib.pyplot as plt 
 import pandas as pd
-import geopandas as gpd
 import numpy as np
 import streamlit as st
 
 
 #Load data
-df = pd.read_csv('/Users/stuartchurch/Tresors/Personal/DataSci/GitJupyter/TorfaenEi/TorfaenEI.csv')
+df = pd.read_csv('TorfaenEI.csv')
 df=df.sort_values(['ServiceArea','MinAgeMo']) 
 size=df['ServiceName'].count()
 st.title("Torfaen Early Intervention : Gap Analysis")
@@ -26,14 +25,11 @@ fig, ax = plt.subplots()
 figure = plt.gcf()
 #figure.set_size_inches(8,12)
 
-
 if servicearea != 'All Service Areas':	
 	df = df[df['ServiceArea']==servicearea]
 	size=df['ServiceName'].count()
 
 figure.set_size_inches(8,(size/2))
-
-	
 
 #Programatically make colour dependent on Service Area
 plt.style.use('fivethirtyeight')
