@@ -3,7 +3,14 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 
-df = pd.read_csv('TorfaenEI.csv')
+@st.cache
+def load_data():
+    data = pd.read_csv('TorfaenEI.csv')
+    return data
+
+df = load_data()
+
+#df = pd.read_csv('TorfaenEI.csv')
 df = df.dropna( how='any', subset=['Minimum age in months', 'Maximum age in months'])
 df=df.sort_values(['Primary Domain/Need','Minimum age in months']) 
 size=df['Intervention Name'].count()
