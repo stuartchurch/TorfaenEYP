@@ -44,6 +44,8 @@ unitarspec = unitarspec.sort_index()  # sorting by index
 servicearea = st.selectbox('Select a Domain/Need:', services)
 unitarspec = st.selectbox('Select whether Universal, Targeted or Specialist:', unitarspec)
 
+st.image('key.png')
+
 if (servicearea != 'Show All') & (unitarspec != 'Show All'):	
 	df = df[(df['Primary Domain/Need']==servicearea) & (df['Universal/Targeted/Specialist']==unitarspec)]
 	size=df['Intervention Name'].count()
