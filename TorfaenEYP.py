@@ -4,6 +4,8 @@ import streamlit as st
 import requests
 from pandas import json_normalize
 
+st.set_page_config(layout="wide")
+
 #Load & cache data. Clear cache periodically - 5mins - so that any changes to the Airtable data source will be pulled in
 @st.cache(ttl=60*5)
 def load_data():
