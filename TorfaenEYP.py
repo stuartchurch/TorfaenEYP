@@ -4,7 +4,7 @@ import streamlit as st
 import requests
 from pandas import json_normalize
 
-#Load & cache data
+#Load & cache data. Clear cache periodically - 5mins - so that any changes to the Airtable data source will be pulled in
 @st.cache(ttl=60*5)
 def load_data():
 	url = "https://v1.nocodeapi.com/essiesee/airtable/uYDVvsGUSfXBMszU?tableName=ServicesInterventions&view="
