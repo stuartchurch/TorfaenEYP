@@ -5,7 +5,7 @@ import requests
 from pandas import json_normalize
 
 #Load & cache data
-@st.cache(ttl=60*1)
+@st.cache(ttl=60*5)
 def load_data():
 	url = "https://v1.nocodeapi.com/essiesee/airtable/uYDVvsGUSfXBMszU?tableName=ServicesInterventions&view="
 	params = {}
